@@ -1,10 +1,29 @@
-<h3>Top Quotes</h3>
-<div class="grid grid-pad">
+<h3>Random Quote</h3>
 
+
+<div *ngIf="randomQuote" class="randomQuote">
+  <div class="randomQuote">
+    <h2>{{randomQuote.text}}</h2>
+    <h4>{{randomQuote.author}}</h4>
+  </div>
+
+  <h3>Tags <a [routerLink]="['/quotedetail', randomQuote.id]">Add/Remove</a></h3>
+
+  <span class="dashTag" *ngFor="let tag of randomQuoteTags">
+	{{tag.name}}
+  </span>
+
+</div>
+
+
+
+
+
+<!-- 
 <a *ngFor="let quote of quotes"  [routerLink]="['/quotedetail', quote.id]"  class="col-1-4">
     <div class="module quote">
       <h4>{{quote.text}}</h4>
     </div>
 </a>
-</div>
-<quote-search></quote-search>
+ --><!-- </div> -->
+<!-- <quote-search></quote-search> -->

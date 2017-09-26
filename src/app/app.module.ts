@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard.component';
 import { QuoteDetailComponent } from './quote-detail.component';
 import { TagDetailComponent } from './tag-detail.component';
+import { QuoteTagsComponent } from './quote-tags.component';
 import { QuoteSearchComponent } from './quote-search.component';
 import { QuotesComponent } from './quotes.component';
 import { TagsComponent } from './tags.component';
@@ -30,7 +31,8 @@ import { AppRoutingModule } from './app-routing.module';
     DashboardComponent,
     QuoteSearchComponent,
     TagsComponent,
-    TagDetailComponent
+    TagDetailComponent,
+    QuoteTagsComponent
   ],
   providers: [
     QuoteService, 

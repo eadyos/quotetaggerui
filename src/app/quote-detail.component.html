@@ -1,11 +1,14 @@
 <div *ngIf="quote">
   <h2>{{quote.text}}</h2>
-  <div><label>id: </label>{{quote.id}}</div>
-  <div><label>author: </label>{{quote.author}}</div>
-  <div>
+  <!-- <div><label>id: </label>{{quote.id}}</div> -->
+  <div>{{quote.author}}</div>
+  <!-- <div>
     <label>name: </label>
     <input [(ngModel)]="quote.text" placeholder="text"/>
   </div>  
-  <button (click)="goBack()">Back</button>
-  <button (click)="save()">Save</button>
+   --><button (click)="goBack()">Back</button>
+  <!-- <button (click)="save()">Save</button> -->
+
+  <br/>
+  <quote-tags quoteId={{quote.id}}></quote-tags>
 </div>

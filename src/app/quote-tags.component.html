@@ -1,0 +1,20 @@
+<ul class="tags">
+  <li *ngFor="let tag of tags">
+  	<span>{{tag.name}}</span>
+  	<button class="delete" (click)="deleteTag(tag); $event.stopPropagation()">X</button>
+  </li>
+</ul>
+
+<div id="search-component">
+  <h4>Tag search</h4>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />  <button (click)="addTag(searchBox.value); searchBox.value=''">
+    Add
+  </button>
+
+  <div>
+    <div *ngFor="let tag of tagSearchResults | async" class="search-result" 
+    	(click)="select(tag); searchBox.value = ''">
+      {{tag.name}}
+    </div>
+  </div>
+</div>

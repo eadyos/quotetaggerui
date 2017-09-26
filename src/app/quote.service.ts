@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { Quote } from './quote';
+import { Tag } from './tag';
 
 
 @Injectable()
@@ -18,11 +19,27 @@ export class QuoteService {
 			.catch(this.handleError);
 	}
 
+	getRandomQuote(): Promise<Quote>{
+		const url = `${this.quotesApiUrl}/random`;
+		return this.http.get(url)
+			.toPromise()
+			.then(response => response.json() as Quote)
+			.catch(this.handleError);
+	}
+
 	getQuote(id: number): Promise<Quote> {
 		const url = `${this.quotesApiUrl}/${id}`;
 		return this.http.get(url)
 			.toPromise()
 			.then(response => response.json() as Quote)
+			.catch(this.handleError);
+	}
+
+	getTags(id: number): Promise<Tag[]> {
+		const url = `${this.quotesApiUrl}/${id}/tags`;
+		return this.http.get(url)
+			.toPromise()
+			.then(response => response.json() as Tag[])
 			.catch(this.handleError);
 	}
 
@@ -45,8 +62,27 @@ export class QuoteService {
 		    .catch(this.handleError);
 	}
 
+	addTag(quoteId: number, tag: Tag): Promise<void> {
+	  	const url = `${this.quotesApiUrl}/${quoteId}/tags/${tag.id}`;
+		return this.http
+			.put(url, {headers: this.headers})
+			.toPromise()
+			.then(() => null)
+			.catch(this.handleError);
+
+	}
+
 	delete(id: number): Promise<void> {
 		const url = `${this.quotesApiUrl}/${id}`;
+		return this.http
+			.delete(url, {headers: this.headers})
+			.toPromise()
+			.then(() => null)
+			.catch(this.handleError);
+	}
+
+	deleteTag(quoteId: number, tag: Tag): Promise<void> {
+	  	const url = `${this.quotesApiUrl}/${quoteId}/tags/${tag.id}`;
 		return this.http
 			.delete(url, {headers: this.headers})
 			.toPromise()
