@@ -7,7 +7,7 @@ import { Tag } from './tag';
 @Injectable()
 export class TagService {
 
-	private tagsApiUrl = "http://localhost:8080/tags";
+	private tagsApiUrl = "https://afternoon-bayou-23485.herokuapp.com/tags";
 
 	constructor(private http: Http){ }
 
