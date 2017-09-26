@@ -1,0 +1,10 @@
+<div id="search-component">
+  <h4>Quote search by author</h4>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <div>
+    <div *ngFor="let quote of quotes | async"
+         (click)="gotoDetail(quote)" class="search-result" >
+      {{quote.author}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<h2>My Quotes</h2>
+
+<div>
+  <label>Quote Text:</label> <input #quoteText />
+  <button (click)="add(quoteText.value); quoteText.value=''">
+    Add
+  </button>
+</div>
+
+<ul class="quotes">
+  <li [class.selected]="quote === selectedQuote"
+  	*ngFor="let quote of quotes" 
+  	(click)="onSelect(quote)">
+  	<span class="badge">{{quote.id}}</span> {{quote.text}}
+  	<button class="delete" (click)="delete(quote); $event.stopPropagation()">X</button>
+  </li>
+</ul>
+<div *ngIf="selectedQuote">
+<h2>
+  {{selectedQuote.text | uppercase}} is my quote
+</h2>
+<button (click)="gotoDetail()">View Details</button>
+</div>
