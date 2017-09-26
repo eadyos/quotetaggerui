@@ -1,7 +1,7 @@
 <h3>Top Quotes</h3>
 <div class="grid grid-pad">
 
-<a *ngFor="let quote of quotes"  [routerLink]="['/detail', quote.id]"  class="col-1-4">
+<a *ngFor="let quote of quotes"  [routerLink]="['/quotedetail', quote.id]"  class="col-1-4">
     <div class="module quote">
       <h4>{{quote.text}}</h4>
     </div>

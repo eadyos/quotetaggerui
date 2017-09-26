@@ -1,0 +1,23 @@
+<h2>My Tags</h2>
+
+<div>
+  <label>Tag Name:</label> <input #tagName />
+  <button (click)="add(tagName.value); tagName.value=''">
+    Add
+  </button>
+</div>
+
+<ul class="tags">
+  <li [class.selected]="tag === selectedTag"
+  	*ngFor="let tag of tags" 
+  	(click)="onSelect(tag)">
+  	<span class="badge">{{tag.id}}</span> {{tag.name}}
+  	<button class="delete" (click)="delete(tag); $event.stopPropagation()">X</button>
+  </li>
+</ul>
+<div *ngIf="selectedTag">
+<h2>
+  {{selectedTag.name | uppercase}} is my tag
+</h2>
+<button (click)="gotoDetail()">View Details</button>
+</div>

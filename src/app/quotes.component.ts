@@ -35,7 +35,7 @@ export class QuotesComponent implements OnInit {
   };
 
   gotoDetail(): void {
-    this.router.navigate(['/detail', this.selectedQuote.id])
+    this.router.navigate(['/quotedetail', this.selectedQuote.id])
   }
 
   add(text: string): void {

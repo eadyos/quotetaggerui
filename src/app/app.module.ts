@@ -6,9 +6,12 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard.component';
 import { QuoteDetailComponent } from './quote-detail.component';
+import { TagDetailComponent } from './tag-detail.component';
 import { QuoteSearchComponent } from './quote-search.component';
 import { QuotesComponent } from './quotes.component';
+import { TagsComponent } from './tags.component';
 import { QuoteService } from './quote.service';
+import { TagService } from './tag.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -25,9 +28,14 @@ import { AppRoutingModule } from './app-routing.module';
     QuoteDetailComponent,
     QuotesComponent,
     DashboardComponent,
-    QuoteSearchComponent
+    QuoteSearchComponent,
+    TagsComponent,
+    TagDetailComponent
   ],
-  providers: [QuoteService],
+  providers: [
+    QuoteService, 
+    TagService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
